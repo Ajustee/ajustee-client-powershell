@@ -11,7 +11,7 @@
     RootModule = 'PSModule.psm1'
     
     # Version number of this module.
-    ModuleVersion = '0.1.0'
+    ModuleVersion = '0.1.2'
     
     # ID used to uniquely identify this module
     GUID = '5E6D3032-A7A2-48DA-AE3C-5D88E7A3D442'
@@ -82,11 +82,12 @@
     # Private data to pass to the module specified in RootModule/ModuleToProcess
     PrivateData = @{
         PSData = @{
-            Tags = 'Ajustee', 'config key', 'configuration', 'configuration keys'
-            icenseUri = 'https://github.com/Ajustee/powershell/blob/master/LICENSE'
+            Tags = @('Ajustee', 'config key', 'configuration keys')
+            LicenseUri = 'https://github.com/Ajustee/powershell/blob/dev/LICENSE'
             ProjectUri = 'https://github.com/Ajustee/powershell'
             #IconUri = 'https://raw.githubusercontent.com/powershell/psscriptanalyzer/master/logo.png'
             ReleaseNotes = ''
+            #Prerelease = '-alpha'
         }
     }
     

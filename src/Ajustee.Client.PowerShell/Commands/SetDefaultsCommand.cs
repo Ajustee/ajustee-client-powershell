@@ -107,7 +107,9 @@ namespace Ajustee.Client.PowerShell
 
         protected override void EndProcessing()
         {
-            if (m_DefaultConnectionSettings != null)
+            if (m_DefaultConnectionSettings == null)
+                WriteObject(DefaultConnectionSettings);
+            else
                 this.SetDefaultConnectionSettings(m_DefaultConnectionSettings);
 
             base.EndProcessing();
