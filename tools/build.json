@@ -1,0 +1,28 @@
+{
+    "cmdlets": [
+        {
+            "framework": "net452",
+            "target": "clr",
+            "files": [
+                "Ajustee.Client.dll",
+                "Ajustee.Client.PowerShell.dll",
+                "Newtonsoft.Json.dll"
+            ]
+        },
+        {
+            "framework": "netstandard2.0",
+            "target": "clrcore",
+            "files": [
+                "Ajustee.Client.dll",
+                "Ajustee.Client.PowerShell.dll",
+                "Ajustee.Client.PowerShell.deps.json"
+            ]
+        }
+    ],
+    "modulefiles": [
+        "PSModule.psd1",
+        "PSModule.psm1",
+        "PSModule.types.ps1xml",
+        "PSModule.format.ps1xml"
+    ]
+}

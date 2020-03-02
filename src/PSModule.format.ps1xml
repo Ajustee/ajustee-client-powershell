@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+<ViewDefinitions>
+  <View>
+    <Name>ConfigKeyView</Name>
+    <ViewSelectedBy>
+      <TypeName>Ajustee.ConfigKey</TypeName>
+    </ViewSelectedBy>
+    <TableControl>
+      <TableHeaders>
+        <TableColumnHeader>
+          <Width>35</Width>
+          <Label>Path</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>12</Width>
+          <Label>Type</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>50</Width>
+          <Label>Value</Label>
+        </TableColumnHeader>
+      </TableHeaders>
+      <TableRowEntries>
+        <TableRowEntry>
+          <Wrap/>
+          <TableColumnItems>
+            <TableColumnItem>
+              <PropertyName>Path</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>DataType</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>Value</PropertyName>
+            </TableColumnItem>
+          </TableColumnItems>
+        </TableRowEntry>
+      </TableRowEntries>
+    </TableControl>
+  </View>
+  <View>
+    <Name>AjusteeConnectionSettingsView</Name>
+    <ViewSelectedBy>
+      <TypeName>Ajustee.AjusteeConnectionSettings</TypeName>
+    </ViewSelectedBy>
+    <TableControl>
+      <TableHeaders>
+        <TableColumnHeader>
+          <Width>26</Width>
+          <Label>Api Url</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>35</Width>
+          <Label>App Id</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>20</Width>
+          <Label>Tracker Id</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>20</Width>
+          <Label>Default path</Label>
+        </TableColumnHeader>
+        <TableColumnHeader>
+          <Width>40</Width>
+          <Label>Default properties</Label>
+        </TableColumnHeader>
+      </TableHeaders>
+      <TableRowEntries>
+        <TableRowEntry>
+          <Wrap/>
+          <TableColumnItems>
+            <TableColumnItem>
+              <PropertyName>ApiUrl</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>ApplicationId</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>TrackerId</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>DefaultPath</PropertyName>
+            </TableColumnItem>
+            <TableColumnItem>
+              <PropertyName>DefaultProperties</PropertyName>
+            </TableColumnItem>
+          </TableColumnItems>
+        </TableRowEntry>
+      </TableRowEntries>
+    </TableControl>
+  </View>
+</ViewDefinitions>
+</Configuration>
