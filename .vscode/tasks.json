@@ -8,7 +8,12 @@
             "command": "pwsh",
             "type": "shell",
             "windows":{
-                "command": "powershell"
+                "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+               "options": {
+                   "env": {
+                       "PATH": "C:/Program Files/dotnet;${env:PATH}"
+                   }
+               }
             },
             "args": [
                 "-File",
