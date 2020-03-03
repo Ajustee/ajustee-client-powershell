@@ -19,7 +19,7 @@ namespace Ajustee.Client.PowerShell
             command.SessionState.PSVariable.Set(m_DefaultAjusteeConnectionSettingsVariableName, settings);
         }
 
-        public static IDictionary<string, string> GetStringified(this IDictionary source)
+        public static IDictionary<string, string> ToStringDictionary(this object source)
         {
             if (source == null)
                 return null;
@@ -27,12 +27,23 @@ namespace Ajustee.Client.PowerShell
             if (source is IDictionary<string, string> _values)
                 return _values;
 
+            if (source is PSObject _obj)
+            {
+                _values = new Dictionary<string, string>();
+                foreach (var _prop in _obj.Properties)
+                {
+                    if (_prop.MemberType == PSMemberTypes.NoteProperty || _prop.MemberType == PSMemberTypes.Property)
+                        _values.Add(_prop.Name, _prop.Value?.ToString());
+                }
+                return _values;
+            }
+
             if (source is IDictionary _dic)
             {
                 _values = new Dictionary<string, string>();
                 foreach (DictionaryEntry _entry in _dic)
                 {
-                    if (_entry.Key == null)
+                    if (_entry.Key != null)
                         throw new ArgumentException("Invalid key of the properties", nameof(source));
 
                     _values.Add(_entry.Key.ToString(), _entry.Value?.ToString());

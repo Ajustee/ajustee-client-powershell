@@ -102,14 +102,12 @@ namespace Ajustee.Client.PowerShell
                 DefaultConnectionSettings.DefaultPath = m_Path;
 
             if (m_IsPropsSet)
-                DefaultConnectionSettings.DefaultProperties = m_Props.GetStringified();
+                DefaultConnectionSettings.DefaultProperties = m_Props.ToStringDictionary();
         }
 
         protected override void EndProcessing()
         {
-            if (m_DefaultConnectionSettings == null)
-                WriteObject(DefaultConnectionSettings);
-            else
+            if (m_DefaultConnectionSettings != null)
                 this.SetDefaultConnectionSettings(m_DefaultConnectionSettings);
 
             base.EndProcessing();

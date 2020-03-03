@@ -9,10 +9,10 @@ namespace Ajustee.Client.PowerShell
     [OutputType(typeof(IEnumerable<ConfigKey>))]
     public class SetConfigurationKeyCommand : CommandBase
     {
-        [Parameter(Mandatory = true, Position = 0)]
+        [Parameter(Mandatory = true, Position = 0, ValueFromPipelineByPropertyName = true)]
         public string Path { get; set; }
 
-        [Parameter(Mandatory = true, Position = 1)]
+        [Parameter(Mandatory = true, Position = 1, ValueFromPipelineByPropertyName = true)]
         public string Value { get; set; }
 
         protected override void ProcessRecord()

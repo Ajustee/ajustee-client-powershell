@@ -10,11 +10,11 @@ namespace Ajustee.Client.PowerShell
     [OutputType(typeof(IEnumerable<ConfigKey>))]
     public class GetConfigurationKeysCommand : CommandBase
     {
-        [Parameter(Mandatory = false)]
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public string Path { get; set; }
 
-        [Parameter(Mandatory = false)]
-        public IDictionary Props { get; set; }
+        [Parameter(Position = 1, Mandatory = false, ValueFromPipelineByPropertyName = true)]
+        public object Props { get; set; }
 
         protected override void ProcessRecord()
         {
@@ -22,7 +22,7 @@ namespace Ajustee.Client.PowerShell
             base.WriteVerbose($"Properties: {Props}");
             try
             {
-                var _configKeys = Client.GetConfigurations(Path, Props.GetStringified());
+                var _configKeys = Client.GetConfigurations(Path, Props.ToStringDictionary());
 
                 WriteObject(_configKeys);
             }
