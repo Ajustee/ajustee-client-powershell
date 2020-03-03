@@ -5,7 +5,7 @@ namespace Ajustee.Client.PowerShell
 {
     [Cmdlet(VerbsCommon.Get, "AjusteeDefaults")]
     [Alias("aj-get-defs")]
-    [OutputType(typeof(IEnumerable<ConfigKey>))]
+    [OutputType(typeof(AjusteeConnectionSettings))]
     public class GetDefaultsCommand : PSCmdlet
     {
         protected override void ProcessRecord()

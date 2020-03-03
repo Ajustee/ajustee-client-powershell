@@ -7,7 +7,6 @@ namespace Ajustee.Client.PowerShell
 {
     [Cmdlet(VerbsCommon.Set, "AjusteeDefaults")]
     [Alias("aj-defs")]
-    [OutputType(typeof(IEnumerable<ConfigKey>))]
     public class SetDefaultsCommand : PSCmdlet
     {
         private Uri m_ApiUrl;

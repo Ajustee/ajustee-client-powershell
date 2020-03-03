@@ -6,7 +6,6 @@ namespace Ajustee.Client.PowerShell
 {
     [Cmdlet(VerbsCommon.Set, "ConfigurationKey")]
     [Alias("aj-set")]
-    [OutputType(typeof(IEnumerable<ConfigKey>))]
     public class SetConfigurationKeyCommand : CommandBase
     {
         [Parameter(Mandatory = true, Position = 0, ValueFromPipelineByPropertyName = true)]
