@@ -65,13 +65,13 @@
     FunctionsToExport = @()
     
     # Cmdlets to export from this module
-    CmdletsToExport = @('Get-ConfigurationKeys', 'Set-ConfigurationKey', 'Get-AjusteeDefaults', 'Set-AjusteeDefaults', 'ConvertFrom-ConfigKeys')
+    CmdletsToExport = @('Get-ConfigurationKeys', 'Set-ConfigurationKey', 'Get-AjusteeDefaults', 'Set-AjusteeDefaults', 'ConvertFrom-ConfigKeys', 'Register-ConfigKeysEvent')
     
     # Variables to export from this module
     VariablesToExport = @()
     
     # Aliases to export from this module
-    AliasesToExport = @('aj-get', 'aj-set', 'aj-defs', 'aj-get-defs', 'aj-cfkeys')
+    AliasesToExport = @('aj-get', 'aj-set', 'aj-defs', 'aj-get-defs', 'aj-cfkeys', 'aj-rgch')
     
     # List of all modules packaged with this module
     # ModuleList = @()

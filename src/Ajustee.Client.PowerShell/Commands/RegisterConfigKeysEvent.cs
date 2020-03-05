@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Management.Automation;
 
 namespace Ajustee.Client.PowerShell
 {
-    [Cmdlet(VerbsCommon.Get, "ConfigurationKeys")]
-    [Alias("aj-get")]
-    [OutputType(typeof(IEnumerable<ConfigKey>))]
-    public class GetConfigurationKeysCommand : ClientCommandBase
+    [Cmdlet(VerbsLifecycle.Register, "ConfigKeysEvent")]
+    [Alias("aj-rgch")]
+    public class RegisterConfigKeysEvent : ClientEventBase
     {
-        [Parameter(Position = 0, Mandatory = false, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public string Path { get; set; }
 
         [Parameter(Position = 1, Mandatory = false, ValueFromPipelineByPropertyName = true)]
@@ -22,9 +20,7 @@ namespace Ajustee.Client.PowerShell
             base.WriteVerbose($"Properties: {Props}");
             try
             {
-                var _configKeys = Client.GetConfigurations(Path, Props.ToStringDictionary());
-
-                WriteObject(_configKeys);
+                Client.Subscribe(Path);
             }
             catch (Exception _ex)
             {

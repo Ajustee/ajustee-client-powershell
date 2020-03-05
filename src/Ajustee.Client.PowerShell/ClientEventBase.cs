@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Management.Automation;
 
+using Microsoft.PowerShell.Commands;
+
 namespace Ajustee.Client.PowerShell
 {
-    public abstract class ClientCommandBase : PSCmdlet
+    public abstract class ClientEventBase : ObjectEventRegistrationBase
     {
         private ClientProvider m_ClientProvider;
 
-        public ClientCommandBase()
+        public ClientEventBase()
             : base()
         {
             m_ClientProvider = new ClientProvider(this);
         }
+
+        [Parameter(Position = 1, Mandatory = true)]
+        [ValidateSet(nameof(AjusteeClient.Changed), nameof(AjusteeClient.Deleted))]
+        public string On { get; set; }
 
         [Parameter(Mandatory = false)]
         public Uri ApiUrl
@@ -33,28 +39,17 @@ namespace Ajustee.Client.PowerShell
             get => m_ClientProvider.TrackerId;
             set => m_ClientProvider.TrackerId = value;
         }
-        
+
         protected AjusteeClient Client => m_ClientProvider.GetClient();
 
-        protected override void BeginProcessing()
+        protected override object GetSourceObject()
         {
-            base.WriteVerbose($"AppUrl: {m_ClientProvider.ApiUrl}");
-            base.WriteVerbose($"AppId: {m_ClientProvider.AppId}");
-
-            base.BeginProcessing();
+            return Client;
         }
 
-        protected override void EndProcessing()
+        protected override string GetSourceObjectEventName()
         {
-            base.EndProcessing();
-
-            // m_ClientProvider
-            var _clientProvider = m_ClientProvider;
-            if (_clientProvider != null)
-            {
-                m_ClientProvider = null;
-                _clientProvider.Dispose();
-            }
+            return On;
         }
     }
 }
