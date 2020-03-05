@@ -18,11 +18,5 @@ namespace Ajustee.Client.PowerShell
             Assert.Equal(_dyn.prop1, 12);
             Assert.Equal(_dyn.prop2.prop3, "value");
         }
-
-        [Fact]
-        public void ConfigKeysConvert()
-        {
-
-        }
     }
 }
