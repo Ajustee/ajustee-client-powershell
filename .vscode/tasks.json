@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build and Import Module",
+            "label": "Build Module",
             "command": "pwsh",
             "type": "shell",
             "windows":{
@@ -25,6 +25,33 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "presentation": {
+                "reveal": "always",
+                "clear": false,
+                "echo": true,
+                "showReuseMessage": true,
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Publish Module",
+            "command": "pwsh",
+            "type": "shell",
+            "windows":{
+                "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+               "options": {
+                   "env": {
+                       "PATH": "C:/Program Files/dotnet;${env:PATH}"
+                   }
+               }
+            },
+            "args": [
+                "-File",
+                "${workspaceFolder}\\tools\\build.ps1",
+                "-Verbose"
+            ],
             "presentation": {
                 "reveal": "always",
                 "clear": false,
